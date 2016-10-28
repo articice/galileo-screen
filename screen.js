@@ -132,6 +132,7 @@ module.exports = {
     lib: {
         removePrompt: removePrompt,
         hasPrompt: hasPrompt,
-        isLastScreen: isLastScreen
+        isLastScreen: isLastScreen,
+        mergeLastLinesAtIntersection: mergeLastLinesAtIntersection
     }
 };
