@@ -2,6 +2,7 @@
 
 usage example
 
+```
 var screen = require('galileo-screen');
 
 response = screen.wrapLines(response); //if your output is not wrapped, try A20NOVIEVCPH (availability screen)
@@ -15,3 +16,4 @@ if (screen.hasMore(response)) {
 } else {
     callback(null, response);
 }
+```
