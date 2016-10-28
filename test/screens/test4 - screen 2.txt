@@ -1,0 +1,14 @@
+2  TK   68  E  21SEP IST BKK  0135  1450  WE  333  EN2PXOW    E 
+]FSK2;    ]*FS2;    ]FQN2;    ]FSOF2;                           
+PRICING OPTION 3                          SUB TOTAL    16016 UAH
+ADT                                    TAX INCLUDED             
+1  KC  402  K  20SEP KBP ALA  2145 #0535  TU  321  TOWKC      E 
+2  KC  621  K  21SEP ALA TSE  1255  1440  WE  767  TOWKC      E 
+3  KC  231  T  22SEP TSE BKK  0730  1540  TH  757  TOWKC      E 
+]FSK3;    ]*FS3;    ]FQN3;    ]FSOF3;                 ]MORE*3;  
+PRICING OPTION 4                          SUB TOTAL    16150 UAH
+ADT                                    TAX INCLUDED             
+1  PS  151  H  20SEP KBP HEL  1325  1530  TU  E90  LLECO0UA   E 
+2  AY   89  L  20SEP HEL BKK  1735 #0715  TU  340  LLECO0UA   E 
+]FSK4;    ]*FS4;    ]FQN4;    ]FSOF4;                           
+)]

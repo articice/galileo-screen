@@ -1,0 +1,33 @@
+{
+  "name": "galileo-screen",
+  "version": "1.0.0",
+  "description": "Screen utilities for Galileo terminal",
+  "main": "screen.js",
+  "scripts": {
+    "test": "mocha test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/articice/galileo-screen.git"
+  },
+  "keywords": [
+    "Travelport",
+    "Ukraine",
+    "Galileo",
+    "terminal",
+    "merge screens",
+    "screen"
+  ],
+  "author": "Artem Pylypchuk <articicejuice@gmail.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/articice/galileo-screen/issues"
+  },
+  "homepage": "https://github.com/articice/galileo-screen#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "^3.0.2",
+    "detect-newline-at-eof": "^0.1.0"
+  }
+}

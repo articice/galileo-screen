@@ -1,0 +1,14 @@
+]FS1IEV20SEPBKK;                                                
+                                                                
+TTL OF 22   PRICING OPTIONS AND 25    ITINERARY OPTIONS RETURNED
+                                                                
+             **ADDITIONAL FEES MAY APPLY**SEE FSOF              
+PRICING OPTION 1                          SUB TOTAL    14550 UAH
+ADT                                    TAX INCLUDED             
+1  KC  402  K  20SEP KBP ALA  2145 #0535  TU  321  QOWKC      E 
+2  KC  931  Q  22SEP ALA BKK  0100  0855  TH  767  QOWKC      E 
+]FSK1;    ]*FS1;    ]FQN1;    ]FSOF1;                           
+PRICING OPTION 2                          SUB TOTAL    15158 UAH
+ADT                                    TAX INCLUDED             
+1  TK  460  E  20SEP KBP IST  2115  2330  TU  332  EN2PXOW    E 
+)]

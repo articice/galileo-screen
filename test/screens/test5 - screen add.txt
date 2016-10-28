@@ -1,0 +1,14 @@
+3  TK   69  Q  17FEB BKK IST  2330 #0625  FR  77W  QN2PX      E 
+4  TK  459  Q  18FEB IST KBP  1845  1945  SA  333  QN2PX      E 
+]FSK4;    ]*FS4;    ]FQN4;    ]FSOF4;                           
+                                                                
+TAB AND ENTER                                                   
+         ]FS*;         (RETURN TO PRICING OPTION SCREEN)        
+         ]FS-;         (RETURN TO PREVIOUS SCREEN)              
+                                                                
+TAB AND ENTER OPTION NUMBER                                     
+         ]FSK;         (REBOOK/CANCEL OPTION)                   
+         ]*FS;         (VIEW FARE DETAIL DISPLAY)               
+         ]FQN;         (VIEW RULES DISPLAY)                     
+         ]FSOF;        (VIEW ADDITIONAL FEE DISPLAY)            
+]

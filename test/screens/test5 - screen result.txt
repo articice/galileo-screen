@@ -1,0 +1,45 @@
+]MORE*6                                                         
+                                                                
+             **ADDITIONAL FEES MAY APPLY**SEE FSOF              
+MORE 1                                    SUB TOTAL    42996 UAH
+BEST FARE FOR *PTC                     TAX INCLUDED             
+1  TK  460  T  27OCT KBP IST  2115  2330  TH  333  TN2XPB     E 
+2  TK   68  T  28OCT IST BKK  0135  1450  FR  333  TN2XPB     E 
+3  TK   69  Q  17FEB BKK IST  2330 #0625  FR  77W  QN2PX      E 
+4  TK  457  Q  18FEB IST KBP  0810  0915  SA  321  QN2PX      E 
+]FSK1;    ]*FS1;    ]FQN1;    ]FSOF1;                           
+                                                                
+MORE 2                                    SUB TOTAL    42996 UAH
+BEST FARE FOR *PTC                     TAX INCLUDED             
+1  TK  460  T  27OCT KBP IST  2115  2330  TH  333  TN2XPB     E 
+2  TK   68  T  28OCT IST BKK  0135  1450  FR  333  TN2XPB     E 
+3  TK   69  Q  17FEB BKK IST  2330 #0625  FR  77W  QN2PX      E 
+4  TK  459  Q  18FEB IST KBP  1845  1945  SA  333  QN2PX      E 
+]FSK2;    ]*FS2;    ]FQN2;    ]FSOF2;                           
+                                                                
+MORE 3                                    SUB TOTAL    42996 UAH
+BEST FARE FOR *PTC                     TAX INCLUDED             
+1  TK  458  T  27OCT KBP IST  1015  1220  TH  333  TN2XPB     E 
+2  TK   68  T  28OCT IST BKK  0135  1450  FR  333  TN2XPB     E 
+3  TK   69  Q  17FEB BKK IST  2330 #0625  FR  77W  QN2PX      E 
+4  TK  457  Q  18FEB IST KBP  0810  0915  SA  321  QN2PX      E 
+]FSK3;    ]*FS3;    ]FQN3;    ]FSOF3;                           
+                                                                
+MORE 4                                    SUB TOTAL    42996 UAH
+BEST FARE FOR *PTC                     TAX INCLUDED             
+1  TK  458  T  27OCT KBP IST  1015  1220  TH  333  TN2XPB     E 
+2  TK   68  T  28OCT IST BKK  0135  1450  FR  333  TN2XPB     E 
+3  TK   69  Q  17FEB BKK IST  2330 #0625  FR  77W  QN2PX      E 
+4  TK  459  Q  18FEB IST KBP  1845  1945  SA  333  QN2PX      E 
+]FSK4;    ]*FS4;    ]FQN4;    ]FSOF4;                           
+                                                                
+TAB AND ENTER                                                   
+         ]FS*;         (RETURN TO PRICING OPTION SCREEN)        
+         ]FS-;         (RETURN TO PREVIOUS SCREEN)              
+                                                                
+TAB AND ENTER OPTION NUMBER                                     
+         ]FSK;         (REBOOK/CANCEL OPTION)                   
+         ]*FS;         (VIEW FARE DETAIL DISPLAY)               
+         ]FQN;         (VIEW RULES DISPLAY)                     
+         ]FSOF;        (VIEW ADDITIONAL FEE DISPLAY)            
+]
