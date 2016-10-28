@@ -1,6 +1,6 @@
 {
   "name": "galileo-screen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Screen utilities for Galileo terminal",
   "main": "screen.js",
   "scripts": {
