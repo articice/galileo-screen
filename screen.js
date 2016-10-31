@@ -2,6 +2,13 @@
  * Created by juice on 9/18/16.
  */
 
+/**
+ * helper routine, checks occurence of smallerArray in outerArray at pos i
+ * @param outerArray
+ * @param smallerArray
+ * @param i
+ * @returns {boolean}
+ */
 var subarrayEqual = function(outerArray, smallerArray, i) {
     for(var j = 0; j < smallerArray.length; ++j) {
         if (outerArray[i+j] != smallerArray[j]) {
@@ -12,6 +19,13 @@ var subarrayEqual = function(outerArray, smallerArray, i) {
     return true;
 };
 
+/**
+ * searches for occurence of smallerArray in outerArray, starting from the back
+ * NOTE quadratic search time
+ * @param outerArray
+ * @param smallerArray
+ * @returns {number} position or -1 if not found
+ */
 var indexOfArrayInArrayBackwards = function(outerArray,  smallerArray) {
     for(var i = outerArray.length - 1; i >= 1 ; i--) {
         if (subarrayEqual(outerArray, smallerArray, i)) return i;
@@ -52,18 +66,41 @@ function intersectArraysBackwardsContLim(a, b) // based on http://stackoverflow.
     return result;
 }
 
+/**
+ * checks if screen ends in a MD (more data, move down) request prompt
+ * @param {string} screen
+ * @returns {boolean}
+ */
 var hasMore = function(screen) {
     return screen.substr(-2) == ')]';
 };
 
+/**
+ * internal screen check function
+ * returns true if screen does not have an MD prompt
+ * returns false if there is more data or string does not have a prompt
+ * @param {string} screen
+ * @returns {boolean}
+ */
 var isLastScreen = function(screen) {
-    return screen.match(/(^|\n)\]$/);
+    return !!screen.match(/(^|\n)\]$/);
 };
 
+/**
+ * internal function, removes prompt at the end of string
+ * prompt should begin with a newline, i.e. won't remove single-string prompt
+ * @param screen
+ * @returns {string} screen with the prompt removed (without trailing \n)
+ */
 var removePrompt = function(screen) {
     return screen.replace(/(^|\n)(\)|)\]$/, '');
 };
 
+/**
+ * returns prompt at the end of screen of false
+ * @param screen
+ * @returns {boolean}
+ */
 var hasPrompt = function(screen) {
     var match = screen.match(/(\)|)\]$/);
     return (match) ? match[0]:false;
@@ -91,6 +128,14 @@ var mergeLastLinesAtIntersection = function(screen1, screen2) {
     return output;
 };
 
+/**
+ * Merges next screen onto previous
+ * - automatic recognition of last screen merge
+ * - automatic management of command prompts
+ * @param prev {string} previous screen (or complete response)
+ * @param next {string} next screen
+ * @returns {string} complete screen
+ */
 var mergeResponse = function(prev, next) {
 
     var screen1 = removePrompt(prev).split("\n"),
@@ -98,6 +143,7 @@ var mergeResponse = function(prev, next) {
 
     var last_prompt = hasPrompt(next);
 
+    var output;
     if (isLastScreen(next)) {
         output = mergeLastLinesAtIntersection(screen1, screen2);
     } else {
@@ -134,5 +180,10 @@ module.exports = {
         hasPrompt: hasPrompt,
         isLastScreen: isLastScreen,
         mergeLastLinesAtIntersection: mergeLastLinesAtIntersection
+    },
+    testing: {
+        subarrayEqual: subarrayEqual,
+        indexOfArrayInArrayBackwards: indexOfArrayInArrayBackwards,
+        intersectArraysBackwardsContLim: intersectArraysBackwardsContLim
     }
 };
