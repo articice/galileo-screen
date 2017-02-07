@@ -39,6 +39,11 @@ module.exports = function(module_options) {
   return {
     mergeResponse: mergeResponse,
     wrapLines: screen.wrapLines,
-    hasMore: screen.hasMore
+    hasMore: screen.hasMore,
+    lib: {
+      merge_fn: screen.merge_fns.kopernik,
+      merge_fn_intersects: false
+
+    }
   }
 };

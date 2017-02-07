@@ -4,7 +4,11 @@
 var assert = require('assert');
 var screen = require('../screen')(64, 32, ')', ']');
 
-var current = require('../')();
+var current = require('../')(
+  {
+    cursor: ']'
+  }
+);
 
 var fs = require('fs');
 var hasNewline = require('detect-newline-at-eof');
@@ -178,14 +182,14 @@ var m_tests = {
         var screen1 = "1\n2\n3\n)]"; //NOTE: correct prompt at the end
         var screen2 = "2\n3\n]";
         var correct = "1\n2\n3\n]";
-        test_merging(fn, screen1, screen2, correct, 'merge screens with prompt (no newline)');
+        test_merging(fn, screen1, screen2, correct, 'merge screens with more prompt (no newline)');
     },
 
     Test1_4: function (fn) {
         var screen1 = "1\n2\n3)]"; //NOTE: corrupt prompt at the end
         var screen2 = "2\n3\n]";
         var correct = "1\n2\n3)]\n2\n3\n]";
-        test_merging(fn, screen1, screen2, correct, 'merge screens with corrupt prompt (no newline)');
+        test_merging(fn, screen1, screen2, correct, 'merge screens with corrupt prompt (no leading newline)');
     },
 
     Test2: function (fn) {
@@ -264,16 +268,16 @@ var shouldInfiniteLoop = function(type, tests_list, fn) {
 
 describe('Test merging of last MD screen', function() {
     var test = current.mergeResponse;
-    it('Test 1', m_tests.Test1.bind(null, test));
-    it('Test 1_1', m_tests.Test1_1.bind(null, test));
-    it('Test 1_2', m_tests.Test1_2.bind(null, test));
-    it('Test 1_3', m_tests.Test1_3.bind(null, test));
-    it('Test 1_4', m_tests.Test1_4.bind(null, test));
-    it('Test 2', m_tests.Test2.bind(null, test));
-    it('Test 3', m_tests.Test3.bind(null, test));
-    it('Test 4', m_tests.Test4.bind(null, test));
-    it('Test 5', m_tests.Test5.bind(null, test));
-    it('Test 6', m_tests.Test6.bind(null, test));
+    it('Test 1 without prompt', m_tests.Test1.bind(null, test));
+    it('Test 1_1 with prompt (end newline)', m_tests.Test1_1.bind(null, test));
+    it('Test 1_2 with prompt', m_tests.Test1_2.bind(null, test));
+    it('Test 1_3 with more prompt', m_tests.Test1_3.bind(null, test));
+    it('Test 1_4 corrupt prompt (no leading newline)', m_tests.Test1_4.bind(null, test));
+    it('Test 2 lists', m_tests.Test2.bind(null, test));
+    it('Test 3 EMD', m_tests.Test3.bind(null, test));
+    it('Test 4 FS', m_tests.Test4.bind(null, test));
+    it('Test 5 FS', m_tests.Test5.bind(null, test));
+    it('Test 6 *FS[N]', m_tests.Test6.bind(null, test));
 });
 
 describe('Test merging of several screens', function() {
@@ -281,7 +285,7 @@ describe('Test merging of several screens', function() {
 
     for (var i = 1; i<= 5; i++) screens[i] = read('/screens/test7 - screen'+i+'.txt');
 
-    var response;
+    var response = null;
     screens.forEach(function(text, i) {
         if (i==1) response = text;
         else
@@ -355,12 +359,12 @@ var c_tests = {
 
     Test2_3: function(fn) {
         var result = fn(
-          ['c', 'b', 'a', 'c', 'b', 'a', 'a', 'b', 'c', 'a', 'b', 'c'],
-                                        ['a', 'b', 'c', 'a', 'b', 'c', 'd']
+          ['c', 'b', 'a', 'c', 'b', 'a', 'a', 'c', 'b', 'a', 'b', 'c'],
+                                        ['a', 'c', 'b', 'a', 'b', 'c', 'd']
         );
 
         console.log(result);
-        assert.deepEqual(result, ['a', 'b', 'c', 'a', 'b', 'c'], 'correct intersection');
+        assert.deepEqual(result, ['a', 'c', 'b', 'a', 'b', 'c'], 'correct intersection');
     },
 
     Test2_4: function(fn) {
@@ -375,33 +379,43 @@ var c_tests = {
 
 };
 
-describe('Test intersection algorithm continuity', function() {
+describe('Test merge/intersection algorithm continuity', function() {
 
     describe('with simple number inputs', function() {
-        it('Test 1_1. Repetitions at the start test',
-          c_tests.Test1_1.bind(null, screen.testing.intersectArraysBackwardsContLim));
-        it('Test 1_2. Repetitions simple test',
-          c_tests.Test1_2.bind(null, screen.testing.intersectArraysBackwardsContLim));
-        it('Test 1_3. Repetitions simple test 2',
-          c_tests.Test1_3.bind(null, screen.testing.intersectArraysBackwardsContLim));
-        it('Test 1_4. Repetitions maximum test',
-          c_tests.Test1_4.bind(null, screen.testing.intersectArraysBackwardsContLim));
+        var test = current.lib.merge_fn;
+
+        //if merge algorithm has intersecting property - run additional tests
+        if (lib.merge_fn_intersects) {
+            it('Test 1_1. Repetitions at the start test',
+              c_tests.Test1_1.bind(null, test));
+            it('Test 1_2. Repetitions simple test',
+              c_tests.Test1_2.bind(null, test));
+            it('Test 1_3. Repetitions simple test 2',
+              c_tests.Test1_3.bind(null, test));
+            it('Test 1_4. Repetitions maximum test',
+              c_tests.Test1_4.bind(null, test));
+        }
     });
 
-    describe('with simple alphabet inputs', function() {
-        it('Test 2_1. Repetitions at the start test',
-          c_tests.Test2_1.bind(null, screen.testing.intersectArraysBackwardsContLim));
-        it('Test 2_2. Repetitions simple test',
-          c_tests.Test2_2.bind(null, screen.testing.intersectArraysBackwardsContLim));
-        it('Test 2_3. Repetitions simple test 2',
-          c_tests.Test2_3.bind(null, screen.testing.intersectArraysBackwardsContLim));
-        it('Test 2_4. Repetitions maximum test',
-          c_tests.Test2_4.bind(null, screen.testing.intersectArraysBackwardsContLim));
-    });
+    if (lib.merge_fn_intersects) {
+        describe('with simple alphabet inputs', function () {
+            var test = current.lib.merge_fn;
+            it('Test 2_1. Repetitions at the start test',
+              c_tests.Test2_1.bind(null, test));
+            it('Test 2_2. Repetitions simple test',
+              c_tests.Test2_2.bind(null, test));
+            it('Test 2_3. Repetitions simple test 2',
+              c_tests.Test2_3.bind(null, test));
+            it('Test 2_4. Repetitions maximum test',
+              c_tests.Test2_4.bind(null, test));
+        });
+    }
 
-    describe('with Galileo screens', function() {
+    if (!lib.merge_fn_intersects) {
+        describe('with Galileo screens', function () {
 
-    });
+        });
+    }
 });
 
 // last part of the test is more vague
@@ -566,9 +580,6 @@ describe('Test rationality of design decisions' , function() {
         return result;
     }
 
-    var removePrompt = lib.removePrompt,
-        hasPrompt = lib.hasPrompt;
-
     var mergeLastLinesAtIntersection_subst = function(intersect_fn, search_fn, screen1, screen2) {
         var output;
         var common = intersect_fn(screen1, screen2);
@@ -584,17 +595,17 @@ describe('Test rationality of design decisions' , function() {
         return output;
     };
 
-    // a way to construct incorrect realizations of screen.mergeReponse
+    // a way to construct various implementations of screen.mergeReponse
     var mergeResponse_subst = screen.mergeResponse_subst;
 
-    var incorrect_mergeScreen = function (merge_fn) {
+    var examined_mergeScreen = function (merge_fn) {
         return mergeResponse_subst.bind(null, merge_fn);
     };
 
 describe('Test merging algorithms', function() {
     it('Forward search is not correct (with forward intersect)', function () {
 
-        var forwardMergeLines_forwardSearch = incorrect_mergeScreen(
+        var forwardMergeLines_forwardSearch = examined_mergeScreen(
           mergeLastLinesAtIntersection_subst.bind(null,
             intersectArrays,
             indexOfArrayInArray
@@ -610,7 +621,7 @@ describe('Test merging algorithms', function() {
 
     it('Forward search is not correct (with forward continuous intersect)', function () {
 
-        var forwardMergeLines_forwardSearch = incorrect_mergeScreen(
+        var forwardMergeLines_forwardSearch = examined_mergeScreen(
           mergeLastLinesAtIntersection_subst.bind(null,
             intersectArraysCont,
             indexOfArrayInArray
@@ -623,7 +634,7 @@ describe('Test merging algorithms', function() {
 
     it('Forward search is not correct (with backward continuous intersect)', function () {
 
-        var backwardMergeLines_forwardSearch = incorrect_mergeScreen(
+        var backwardMergeLines_forwardSearch = examined_mergeScreen(
           mergeLastLinesAtIntersection_subst.bind(null,
             intersectArraysBackwardsContLim,
             indexOfArrayInArray
@@ -636,7 +647,7 @@ describe('Test merging algorithms', function() {
 
     it('Forward search is not correct (with backward continuous intersect 2)', function () {
 
-        var backwardMergeLines_forwardSearch = incorrect_mergeScreen(
+        var backwardMergeLines_forwardSearch = examined_mergeScreen(
           mergeLastLinesAtIntersection_subst.bind(null,
             intersectArraysBackwardsContLim2,
             indexOfArrayInArray
@@ -649,7 +660,7 @@ describe('Test merging algorithms', function() {
     });
 
     it('Forward continuous intersection is not correct (with backward search)', function () {
-        var backwardMergeLines_forwardSearch = incorrect_mergeScreen(
+        var backwardMergeLines_forwardSearch = examined_mergeScreen(
           mergeLastLinesAtIntersection_subst.bind(null,
             intersectArraysCont,
             screen.testing.indexOfArrayInArrayBackwards
@@ -661,7 +672,7 @@ describe('Test merging algorithms', function() {
     });
 
     it('Backward non-continuous intersection is not correct (with backward search)', function () {
-        var backwardNCMergeLines_forwardSearch = incorrect_mergeScreen(
+        var backwardNCMergeLines_forwardSearch = examined_mergeScreen(
           mergeLastLinesAtIntersection_subst.bind(null,
             intersectArraysBackwards,
             screen.testing.indexOfArrayInArrayBackwards
@@ -673,7 +684,7 @@ describe('Test merging algorithms', function() {
     });
 
     it('Backwards continuous intersection is correct with most tests', function () {
-        var backwardMergeLines_backwardSearch = incorrect_mergeScreen(
+        var backwardMergeLines_backwardSearch = examined_mergeScreen(
           mergeLastLinesAtIntersection_subst.bind(null,
             intersectArraysBackwardsContLim,
             screen.testing.indexOfArrayInArrayBackwards
@@ -685,7 +696,7 @@ describe('Test merging algorithms', function() {
     });
 
     it('Backwards continuous intersection 2 is correct with most tests', function () {
-        var backwardMergeLines_backwardSearch = incorrect_mergeScreen(
+        var backwardMergeLines_backwardSearch = examined_mergeScreen(
           mergeLastLinesAtIntersection_subst.bind(null,
             intersectArraysBackwardsContLim2,
             screen.testing.indexOfArrayInArrayBackwards
@@ -699,7 +710,7 @@ describe('Test merging algorithms', function() {
 
     it('Kopernik merge is ok', function() {
 
-        var merge = incorrect_mergeScreen(screen.merge_fns.kopernik);
+        var merge = examined_mergeScreen(screen.merge_fns.kopernik);
 
         shouldNotFail(m_tests, [ 1, '1_1', '1_2', '1_3', '1_4', '2', '3',  '2', '3', '4', '5', '6'], merge);
         shouldFail(m_tests, [], merge);
