@@ -2,6 +2,7 @@
  * Created by juice on 9/18/16.
  */
 var assert = require('assert');
+var module = require('../');
 var screen = require('../screen')(64, 32, ')', ']');
 
 var current = require('../')(
@@ -278,6 +279,20 @@ describe('Test merging of last MD screen', function() {
     it('Test 4 FS', m_tests.Test4.bind(null, test));
     it('Test 5 FS', m_tests.Test5.bind(null, test));
     it('Test 6 *FS[N]', m_tests.Test6.bind(null, test));
+
+    describe('Custom cursors', function() {
+        var uapiScreen = module({
+            cursor: '><'
+        });
+
+        it('Test 8 *PNR with uAPI cursor', function () {
+            var screen1 = read('/screens/test8 - screen 1.txt');
+            var screen2 = read('/screens/test8 - screen 2.txt');
+            var correct = read('/screens/test8 - screen result.txt');
+            test_merging(uapiScreen.mergeResponse, screen1, screen2, correct, 'merging of *PNR screens');
+        });
+    });
+
 });
 
 describe('Test merging of several screens', function() {

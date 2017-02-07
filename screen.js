@@ -104,7 +104,7 @@ module.exports = function (width, height, moreString, promptString) {
      * @returns {boolean}
      */
     var hasMore = function (screen) {
-        return screen.substr(-2) == hasMoreEnd;
+        return screen.substr(-hasMoreEnd.length) == hasMoreEnd;
     };
 
     var lastScreenRegexp = new RegExp("(^|\n)" + esc(promptString) + "$");
