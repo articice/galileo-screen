@@ -3,7 +3,6 @@
  */
 
 var Screen = require('./screen');
-var merge = require('lodash/fp/merge');
 
 module.exports = function(module_options) {
 
@@ -16,7 +15,7 @@ module.exports = function(module_options) {
 
   var options;
   if (module_options)
-    options = merge(defaultOptions, module_options);
+    options = Object.assign(defaultOptions, module_options);
   else
     options = defaultOptions;
 
