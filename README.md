@@ -1,5 +1,7 @@
 # galileo-screen
 
+[![Status](https://travis-ci.org/articice/galileo-screen.svg?branch=master)](https://travis-ci.org/articice/galileo-screen)
+
 usage example
 
 ```
