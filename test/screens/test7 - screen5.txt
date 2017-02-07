@@ -1,0 +1,14 @@
+2  BA  883  Q  30NOV KBP LHR  1400  1555  WE  319  *MULTI*    E 
+3  BA  332  O  01DEC LHR ORY  0700  0925  TH  319  *MULTI*    E 
+]FSK8;    ]*FS8;    ]FQN8;    ]FSOF8;                 ]MORE*8;  
+TAB AND ENTER                                                   
+         ]FSMORE;      (VIEW ADDITIONAL PRICING OPTIONS)        
+         ]FS*;         (RETURN TO PRICING OPTION SCREEN)        
+                                                                
+TAB AND ENTER OPTION NUMBER                                     
+         ]FSK;         (REBOOK/CANCEL OPTION)                   
+         ]*FS;         (VIEW FARE DETAIL DISPLAY)               
+         ]FQN;         (VIEW RULES DISPLAY)                     
+         ]FSOF;        (VIEW ADDITIONAL FEE DISPLAY)            
+         ]MORE*;       (VIEW MORE ITINERARIES WITHIN AN OPTION) 
+]

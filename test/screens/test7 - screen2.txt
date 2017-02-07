@@ -1,0 +1,14 @@
+1  BA  326  O  21NOV LHR CDG  1930  2145  MO  319  *MULTI*    E 
+2  BA  883  Q  30NOV KBP LHR  1400  1555  WE  319  *MULTI*    E 
+3  BA  332  O  01DEC LHR ORY  0700  0925  TH  319  *MULTI*    E 
+]FSK2;    ]*FS2;    ]FQN2;    ]FSOF2;                 ]MORE*2;  
+PRICING OPTION 3                          SUB TOTAL    14758 UAH
+ADT CNN INF                            TAX INCLUDED             
+1  BA  338  O  21NOV LHR ORY  1905  2130  MO  319  *MULTI*    E 
+2  BA  883  Q  30NOV KBP LHR  1400  1555  WE  319  *MULTI*    E 
+3  BA  322  O  30NOV LHR CDG  1720  1940  WE  319  *MULTI*    E 
+]FSK3;    ]*FS3;    ]FQN3;    ]FSOF3;                 ]MORE*3;  
+PRICING OPTION 4                          SUB TOTAL    14758 UAH
+ADT CNN INF                            TAX INCLUDED             
+1  BA  338  O  21NOV LHR ORY  1905  2130  MO  319  *MULTI*    E 
+)]

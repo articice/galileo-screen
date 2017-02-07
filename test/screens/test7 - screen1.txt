@@ -1,0 +1,14 @@
+]FS2LON21NOVPAR--IEV30NOVPAR|P1.2*CNN.3*INF||-ECON;             
+                                                                
+TTL OF 80   PRICING OPTIONS AND 345   ITINERARY OPTIONS RETURNED
+                                                                
+             **ADDITIONAL FEES MAY APPLY**SEE FSOF              
+PRICING OPTION 1                          SUB TOTAL    14758 UAH
+ADT CNN INF                            TAX INCLUDED             
+1  BA  326  O  21NOV LHR CDG  1930  2145  MO  319  *MULTI*    E 
+2  BA  883  Q  30NOV KBP LHR  1400  1555  WE  319  *MULTI*    E 
+3  BA  322  O  30NOV LHR CDG  1720  1940  WE  319  *MULTI*    E 
+]FSK1;    ]*FS1;    ]FQN1;    ]FSOF1;                 ]MORE*1;  
+PRICING OPTION 2                          SUB TOTAL    14758 UAH
+ADT CNN INF                            TAX INCLUDED             
+)]
