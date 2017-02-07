@@ -285,11 +285,23 @@ describe('Test merging of last MD screen', function() {
             cursor: '><'
         });
 
-        it('Test 8 *PNR with uAPI cursor', function () {
+        describe('Test 8', function() {
             var screen1 = read('/screens/test8 - screen 1.txt');
             var screen2 = read('/screens/test8 - screen 2.txt');
             var correct = read('/screens/test8 - screen result.txt');
-            test_merging(uapiScreen.mergeResponse, screen1, screen2, correct, 'merging of *PNR screens');
+
+            it ('Test 8 screen 1 hasMore', function() {
+                assert.equal(uapiScreen.hasMore(screen1), true, 'test8 screen 1 has more');
+            });
+
+            it ('Test 8 screen 2 hasMore', function() {
+                assert.equal(uapiScreen.hasMore(screen2), false, 'test8 screen 2 doesn\'t have more');
+            });
+
+            it('Test 8 *PNR with uAPI cursor', function () {
+                test_merging(uapiScreen.mergeResponse, screen1, screen2, correct, 'merging of *PNR screens');
+            });
+
         });
     });
 
